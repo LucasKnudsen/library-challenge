@@ -2,11 +2,11 @@
 - :book:
     :title: Moby Dick
     :author: Herman Melville
-  :available: false
-  :return_date: 24/02
+  :available: true
+  :return_date:
 - :book:
-    :title: 
-    :author: 
+    :title: Big Fish
+    :author: Daniel Wallace
   :available: true
   :return_date: 
 - :book:

@@ -33,7 +33,11 @@ class Librarian
         else
             raise 'This book is unavailable'
         end
-        File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
+        # File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
+    end
+
+    def check_rented_books
+        list = @books.select { |list| list[:return_date]}
     end
 
     private

@@ -38,6 +38,16 @@ describe Librarian do
         expect(subject.books[0][:return_date]).to eq expected_output
     end
 
+    it 'can retrieve a list of all books that are rented out' do
+        subject.check_out("Moby Dick", reader: reader)
+        subject.check_out("Big Fish", reader: reader)
+        expected_output = [{:available=>false, :book=>{:author=>"Herman Melville", :title=>"Moby Dick"},
+            :return_date=>"24/02"},{:available=>false,
+            :book=>{:author=>"Daniel Wallace", :title=>"Big Fish"},
+            :return_date=>"24/02"}]
+        expect(subject.check_rented_books).to eq expected_output
+    end
+
     describe 'Reader' do
         let(:reader) { instance_double('Reader', rented_books: []) }
         before do
