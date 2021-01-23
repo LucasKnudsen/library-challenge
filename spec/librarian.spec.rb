@@ -15,4 +15,17 @@ describe Librarian do
         expect(subject.check_availability("Moby Dick")).to eq true
     end
 
+    describe 'Reader' do
+        let(:reader) { instance_double('Reader', rented_books: []) }
+        before do
+            allow(reader).to receive(:rented_books=)
+        end
+
+        it 'has no rented books on initialize' do
+            expect(reader.rented_books).to eq []
+        end
+
+
+    end
+
 end
