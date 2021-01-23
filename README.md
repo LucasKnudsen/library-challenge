@@ -12,10 +12,12 @@ With our book tracker, all books are stored in a 'database', with title and auth
 As a library
 In order to keep track of my books
 All books needs to be stored in one list
+**Databse with books**
 
 As a librarian
 In order to know whether the book is available or not
 He/she needs to be able to easily access this in the book list
+**Check availability method**
 
 As a reader
 In order to find a good book
@@ -24,14 +26,18 @@ He/she needs to easily access the title
 As a reader
 In order to read
 He/she needs to be able to rent a book
+**Check_out method**
 
 As a librarian
 In order to ensure that the books will return within a reasonable time
 Books need to be given a return_date on check out
+**return_date = attribute**
+**set_return_date method on check_out**
 
 As a reader
 In order to know, when he/she should return the book.
 The checkout process needs to tell the user of the return_date
+**Display return_date on checkout**
 
 ###
 
