@@ -33,7 +33,8 @@ class Librarian
     private
     
     def set_return_date(book)
-        book[:return_date] = Date.today.next_month.strftime("%d/%m")
+        date = book[:return_date] = Date.today.next_month.strftime("%d/%m")
+        "Thank you using our Library! Please return the book before: #{date}"
     end
 
 
