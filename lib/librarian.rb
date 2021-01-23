@@ -22,26 +22,44 @@ class Librarian
         book[:available]
     end
 
-    def check_out(title, reader = {})
+    def check_out(title, reader_arg = {})
         book = @books.detect { |list| list[:book][:title] == title }
-        book[:available] = false
-        set_return_date(book)
         
-        reader = reader[:reader]
-        reader.rented_books.push({ title: book[:book][:title], author: book[:book][:author] })
-        
+        if book[:available] == true
+            book[:available] = false
+            reader = reader_arg[:reader]
+            reader.rented_books.push({ title: book[:book][:title], author: book[:book][:author] })
+            set_return_date(book)
+        else
+            raise 'This book is unavailable'
+        end
         # File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
     end
 
     private
 
-    #quotes = []
-    #def generate_quote
+    def generate_quote
+        picker = rand(0..5)
+        case picker
+            when picker = 0
+                'My, what a fantastic choice!'
+            when picker = 1
+                'A reader lives a thousand lives before he dies.'
+            when picker = 2
+                'Books are a uniquely portable magic.'
+            when picker = 3
+                'A room without books is like a body without a soul.'
+            when picker = 4
+                'There is more treasure in books than in all the pirate’s loot on Treasure Island.'
+            else
+                'Reading is to the mind what exercise is to the body.'
+        end
+    end
 
     
     def set_return_date(book)
         date = book[:return_date] = Date.today.next_month.strftime("%d/%m")
-        "Thank you using our Library! Please return the book before: #{date}"
+        "#{generate_quote()} Please return the book before: #{date}"
     end
 
 

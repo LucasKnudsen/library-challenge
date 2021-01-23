@@ -2,7 +2,11 @@ require './lib/librarian.rb'
 require 'date'
 
 describe Librarian do
-    
+    let(:reader) { instance_double('Reader', rented_books: []) }
+    before do
+        allow(reader).to receive(:rented_books=)
+    end
+
     it 'has a list of books on initialize' do
         expect(subject.books).to be_truthy
     end
@@ -17,13 +21,19 @@ describe Librarian do
 
     it 'can check out books, meaning availability will change to false' do
         book = "Moby Dick"
-        subject.check_out(book)
+        subject.check_out(book, reader: reader)
         expect(subject.check_availability(book)).to eq false
+    end
+    
+    it 'cant check out books if availability is false' do
+        book = "Moby Dick"
+        subject.check_out(book, reader: reader)
+        expect { subject.check_out(book, reader: reader) }.to raise_error 'This book is unavailable'
     end
 
     it 'on checkout, a return date will be added to the list' do
         book = "Moby Dick"
-        subject.check_out(book)
+        subject.check_out(book, reader: reader)
         expected_output = Date.today.next_month.strftime("%d/%m")
         expect(subject.books[0][:return_date]).to eq expected_output
     end
