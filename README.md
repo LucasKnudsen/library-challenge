@@ -41,7 +41,9 @@ The checkout process needs to tell the user of the return_date
 
 ###
 
-### T
+### Help
+----
+https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/
 
 ### Tips
 ----

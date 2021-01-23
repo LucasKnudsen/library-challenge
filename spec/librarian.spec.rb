@@ -11,4 +11,8 @@ describe Librarian do
         expect(subject.books[0][:book][:title]).to eq 'Moby Dick'
     end
 
+    it 'can check availability of books' do
+        expect(subject.check_availability("Moby Dick")).to eq true
+    end
+
 end
