@@ -26,6 +26,7 @@ class Librarian
         book = @books.detect { |list| list[:book][:title] == title }
         book[:available] = false
         set_return_date(book)
+        
         reader = reader[:reader]
         reader.rented_books.push({ title: book[:book][:title], author: book[:book][:author] })
         
@@ -33,6 +34,10 @@ class Librarian
     end
 
     private
+
+    #quotes = []
+    #def generate_quote
+
     
     def set_return_date(book)
         date = book[:return_date] = Date.today.next_month.strftime("%d/%m")
