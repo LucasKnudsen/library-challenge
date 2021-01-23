@@ -40,8 +40,8 @@ describe Librarian do
 
         it 'adds book to Reader/s rented_books list' do
             book = "Moby Dick"
-            subject.check_out(book)
-            expected_output = { title: book, author: 'Herman Melville' }
+            subject.check_out(book, reader: reader)
+            expected_output = [{ title: book, author: 'Herman Melville' }]
             expect(reader.rented_books).to eq expected_output
         end
 

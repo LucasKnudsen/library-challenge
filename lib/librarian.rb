@@ -22,10 +22,12 @@ class Librarian
         book[:available]
     end
 
-    def check_out(title)
+    def check_out(title, reader = {})
         book = @books.detect { |list| list[:book][:title] == title }
         book[:available] = false
         set_return_date(book)
+        reader = reader[:reader]
+        reader.rented_books.push({ title: book[:book][:title], author: book[:book][:author] })
         
         # File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
     end
