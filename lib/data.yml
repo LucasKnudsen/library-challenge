@@ -2,25 +2,25 @@
 - :book:
     :title: Moby Dick
     :author: Herman Melville
-  :available: true
-  :return_date:
+  :available: false
+  :return_date: 
 - :book:
-    :title:
-    :author:
+    :title: 
+    :author: 
   :available: true
-  :return_date:
+  :return_date: 
 - :book:
-    :title:
-    :author:
+    :title: 
+    :author: 
   :available: true
-  :return_date:
+  :return_date: 
 - :book:
-    :title:
-    :author:
+    :title: 
+    :author: 
   :available: true
-  :return_date:
+  :return_date: 
 - :book:
-    :title:
-    :author:
+    :title: 
+    :author: 
   :available: true
-  :return_date:
+  :return_date: 

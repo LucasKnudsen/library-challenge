@@ -21,6 +21,8 @@ describe Librarian do
         expect(subject.check_availability(book)).to eq false
     end
 
+    # it 'on checkout, a return date will be added to the list'
+
     describe 'Reader' do
         let(:reader) { instance_double('Reader', name: 'Billy', rented_books: []) }
         before do
