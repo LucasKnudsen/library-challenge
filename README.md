@@ -43,7 +43,8 @@ The checkout process needs to tell the user of the return_date
 
 ### Help
 ----
-https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/
+https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/  
+https://www.shortcutfoo.com/app/dojos/ruby-dates/cheatsheet  
 
 ### Tips
 ----

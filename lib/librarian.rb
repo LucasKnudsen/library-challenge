@@ -25,9 +25,16 @@ class Librarian
     def check_out(title)
         book = @books.detect { |list| list[:book][:title] == title }
         book[:available] = false
-        File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
+        set_return_date(book)
+        
+        # File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
     end
 
+    private
+    
+    def set_return_date(book)
+        book[:return_date] = Date.today.next_month.strftime("%d/%m")
+    end
 
 
 end
