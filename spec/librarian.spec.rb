@@ -29,13 +29,20 @@ describe Librarian do
     end
 
     describe 'Reader' do
-        let(:reader) { instance_double('Reader', name: 'Billy', rented_books: []) }
+        let(:reader) { instance_double('Reader', rented_books: []) }
         before do
             allow(reader).to receive(:rented_books=)
         end
 
         it 'has no rented books on initialize' do
             expect(reader.rented_books).to eq []
+        end
+
+        it 'adds book to Reader/s rented_books list' do
+            book = "Moby Dick"
+            subject.check_out(book)
+            expected_output = { title: book, author: 'Herman Melville' }
+            expect(reader.rented_books).to eq expected_output
         end
 
 
