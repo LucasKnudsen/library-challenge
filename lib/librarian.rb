@@ -33,7 +33,7 @@ class Librarian
         else
             raise 'This book is unavailable'
         end
-        # File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
+        File.open('./lib/data.yml', 'w') { |f| f.write books.to_yaml }
     end
 
     private
