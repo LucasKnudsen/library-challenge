@@ -22,4 +22,11 @@ class Librarian
         book[:available]
     end
 
+    def check_out(title)
+        book = @books.detect { |list| list[:book][:title] == title }
+        book[:available] = false
+    end
+
+
+
 end

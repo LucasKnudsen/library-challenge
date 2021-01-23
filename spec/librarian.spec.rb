@@ -15,8 +15,14 @@ describe Librarian do
         expect(subject.check_availability("Moby Dick")).to eq true
     end
 
+    it 'can check out books, meaning availability will change to false' do
+        book = "Moby Dick"
+        subject.check_out(book)
+        expect(subject.check_availability(book)).to eq false
+    end
+
     describe 'Reader' do
-        let(:reader) { instance_double('Reader', rented_books: []) }
+        let(:reader) { instance_double('Reader', name: 'Billy', rented_books: []) }
         before do
             allow(reader).to receive(:rented_books=)
         end
