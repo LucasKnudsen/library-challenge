@@ -37,7 +37,10 @@ class Librarian
     end
 
     def check_rented_books
-        list = @books.select { |list| list[:return_date]}
+        book_list = @books.select { |item| item[:return_date]}
+        title_list = []
+        book_list.each { |hash| title_list.push(hash[:book][:title]) }
+        title_list
     end
 
     private

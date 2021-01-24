@@ -41,10 +41,7 @@ describe Librarian do
     it 'can retrieve a list of all books that are rented out' do
         subject.check_out("Moby Dick", reader: reader)
         subject.check_out("Big Fish", reader: reader)
-        expected_output = [{:available=>false, :book=>{:author=>"Herman Melville", :title=>"Moby Dick"},
-            :return_date=>"24/02"},{:available=>false,
-            :book=>{:author=>"Daniel Wallace", :title=>"Big Fish"},
-            :return_date=>"24/02"}]
+        expected_output = ["Moby Dick", "Big Fish"]
         expect(subject.check_rented_books).to eq expected_output
     end
 
